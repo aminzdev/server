@@ -40,7 +40,7 @@ func RunGrpcWebServer(service, host string, grpcServer *grpc.Server, wg *sync.Wa
 	}
 }
 
-func RunServer(server *interface{}, serviceName, grpcHost, grpcWebHost string, registerServer func(grpc.ServiceRegistrar, *interface{})) {
+func RunServer(server interface{}, serviceName, grpcHost, grpcWebHost string, registerServer func(grpc.ServiceRegistrar, interface{})) {
 	grpcServer := grpc.NewServer()
 	registerServer(grpcServer, server)
 	reflection.Register(grpcServer)
